@@ -26,9 +26,17 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "module-alias": "^2.2.2",
     "mongoose": "^6.3.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "_moduleAliases": {
+    "@root": ".", 
+    "@controllers": "app/controllers",
+    "@routes": "app/routes",
+    "@models": "app/models",
+    "@public": "public"
   }
 }

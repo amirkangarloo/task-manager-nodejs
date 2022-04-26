@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 // Routes
-require('./routes')(app);
+require('@routes')(app);
 
 module.exports = () => {
     const port = process.env.APP_PORT;
