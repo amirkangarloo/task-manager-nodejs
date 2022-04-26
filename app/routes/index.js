@@ -1,12 +1,7 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-const controller = require('@controllers');
-
-// test roter
-const test = router.get('/', controller.test);
+const tasks = require('./tasks');
 
 module.exports = (app) => {
-    app.use('/', test);
+    app.use('/api/v1/tasks', tasks);
 }
