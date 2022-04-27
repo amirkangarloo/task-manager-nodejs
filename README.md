@@ -15,7 +15,7 @@ Task manager with Nodejs, Express and MongoDB.
 This project uses the [MongoDB](https://www.mongodb.com/ "MongoDB") database, and for connection to MongoDB used the [mongodb](https://www.npmjs.com/package/mongodb/ "mongodb") package.
 
 
-|  **Database Name **| **Collection Name**  |
+|  **Database Name**| **Collection Name**  |
 | :------------: | :------------: |
 |  task_manager |  tasks |
 
