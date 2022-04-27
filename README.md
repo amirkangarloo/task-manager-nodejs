@@ -12,7 +12,7 @@ Task manager with Nodejs, Express and MongoDB.
 |  DELETE |  api/v1/tasks/:id |  Delete task |
 
 ## database
-This project uses the [MongoDB](https://www.mongodb.com/ "MongoDB") database, and for connection to MongoDB used the [mongoose](https://mongoosejs.com/ "mongoose") package.
+This project uses the [MongoDB](https://www.mongodb.com/ "MongoDB") database, and for connection to MongoDB used the [mongodb](https://www.npmjs.com/package/mongodb/ "mongodb") package.
 
 
 |  **Database Name **| **Collection Name**  |
