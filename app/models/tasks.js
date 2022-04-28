@@ -26,3 +26,18 @@ exports.deleteTask = async (collection, taskId) => {
         _id: ObjectId(taskId)
     });
 };
+
+exports.updateTask = async (collection, taskId, changeItem) => {
+
+    return await db.collection(collection).updateOne(
+        {
+            _id: ObjectId(taskId)
+        },
+        {
+            $set: {
+                name: changeItem.name,
+                completed: changeItem.completed
+            }
+        }
+    );
+};
