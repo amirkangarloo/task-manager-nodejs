@@ -4,22 +4,71 @@ const taskModels = require('@models/tasks');
 const collection = process.env.MONGODB_COLLECTION_NAME;
 
 exports.getAllTasks = async (req, res) => {
-    const tasks = await taskModels.getAllTasks(collection);
-    res.status(200).send(tasks);
+    try {
+        const tasks = await taskModels.getAllTasks(collection);
+        res.status(200).send({tasks});
+    } catch (error) {
+        res.status(500).send({
+            error: error.name,
+            message: error.message
+        });
+    }
 };
 
 exports.createNewTask = async (req, res) => {
-    res.status(201).send('Create new task');
+    try {
+        const task = req.body;
+        const newTask = await taskModels.insertTask(collection, task);
+        res.status(201).send({newTask});
+    } catch (error) {
+        res.status(500).send({
+            error: error.name,
+            message: error.message
+        });
+    }
 };
 
 exports.getTask = async (req, res) => {
-    res.send('get single task');
+    try {
+        const {id: taskId} = req.params;
+        const task = await taskModels.getTaskById(collection, taskId);
+        if (task.length < 1) {
+            return res.status(404).send({
+                message: `No task with id: ${taskId}`
+            })
+        }
+
+        res.status(200).send({task});
+    } catch (error) {
+        res.status(500).send({
+            error: error.name,
+            message: error.message
+        });
+    }
 };
 
 exports.updateTask = async (req, res) => {
-    res.send('update task');
+    try {
+        
+    } catch (error) {
+        res.status(500).send({
+            error: error.name,
+            message: error.message
+        });
+    }
 };
 
 exports.deleteTask = async (req, res) => {
-    res.send('delete task');
+    try {
+        const {id: taskId} = req.params;
+        const result = await taskModels.deleteTask(collection, taskId);
+
+        res.status(200).send({result})
+
+    } catch (error) {
+        res.status(500).send({
+            error: error.name,
+            message: error.message
+        });
+    }
 };
