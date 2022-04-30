@@ -5,6 +5,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(express.static('public'));
 
 // Routes
 require('@routes')(app);

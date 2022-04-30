@@ -63,18 +63,11 @@ exports.updateTask = async (req, res) => {
                 message: `No task with id: ${taskId}`
             })
         }
-        
-        if (updateTask.modifiedCount == 0 ||
-            !req.body.name ||
-            !req.body.completed
-            ) {
-            return res.status(500).send({
-                error: "FAILED REQUEST",
-                message: `Items can't be changed`
-            })
-        }
 
-        res.status(200).send({updateTask});
+        // if update task is succsses, GET task for show
+        
+        const task = await taskModels.getTaskById(collection, taskId);
+        res.status(200).send({task});
 
     } catch (error) {
         res.status(500).send({
