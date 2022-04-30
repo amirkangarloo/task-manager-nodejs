@@ -1,7 +1,12 @@
 'use strict';
 
 const errorHandlers = (err, req, res, next) => {
-    return res.status(500).send({
+    
+    if (!err.statusCode) {
+        err.statusCode = 500
+    }
+
+    return res.status(err.statusCode).send({
         error: err.name,
         message: err.message
     });

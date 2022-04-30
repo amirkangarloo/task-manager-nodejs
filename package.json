@@ -38,6 +38,7 @@
     "@routes": "app/routes",
     "@models": "app/models",
     "@middlewares": "app/middlewares",
+    "@errors": "app/errors",
     "@public": "public",
     "@database": "database"
   }

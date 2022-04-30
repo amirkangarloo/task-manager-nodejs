@@ -2,6 +2,7 @@
 
 const taskModels = require('@models/tasks');
 const asyncWrapper = require('@middlewares/async');
+const notFound = require('@errors/404');
 const collection = process.env.MONGODB_COLLECTION_NAME;
 
 exports.getAllTasks = asyncWrapper(async (req, res) => {
@@ -19,17 +20,14 @@ exports.createNewTask = asyncWrapper(async (req, res) => {
     });
 });
 
-exports.getTask = asyncWrapper(async (req, res) => {
+exports.getTask = asyncWrapper(async (req, res, next) => {
     const {
         id: taskId
     } = req.params;
     const task = await taskModels.getTaskById(collection, taskId);
 
     if (task.length < 1) {
-        return res.status(404).send({
-            error: "NOT FOUND",
-            message: `No task with id: ${taskId}`
-        })
+        return next(notFound(taskId));
     }
 
     res.status(200).send({
@@ -37,7 +35,7 @@ exports.getTask = asyncWrapper(async (req, res) => {
     });
 });
 
-exports.updateTask = asyncWrapper(async (req, res) => {
+exports.updateTask = asyncWrapper(async (req, res, next) => {
     const {
         id: taskId
     } = req.params;
@@ -48,10 +46,7 @@ exports.updateTask = asyncWrapper(async (req, res) => {
     );
 
     if (updateTask.matchedCount == 0) {
-        return res.status(404).send({
-            error: "NOT FOUND",
-            message: `No task with id: ${taskId}`
-        })
+        return next(notFound(taskId));
     }
 
     // if update task is succsses, GET task for show
