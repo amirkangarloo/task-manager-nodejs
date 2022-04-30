@@ -37,6 +37,7 @@
     "@controllers": "app/controllers",
     "@routes": "app/routes",
     "@models": "app/models",
+    "@middlewares": "app/middlewares",
     "@public": "public",
     "@database": "database"
   }
