@@ -4,18 +4,21 @@ Task manager with Nodejs, Express and MongoDB.
 
 ## Installation
 
+
 **First step**
-
-Create a [Mongo database](https://github.com/amirkangarloo/task-manager-nodejs#database).
-
-**Second step**
-
-Create a [**.env** file](https://github.com/amirkangarloo/task-manager-nodejs#env-file).
-
-**Third step**
 ```javascript
 git clone https://github.com/amirkangarloo/task-manager-nodejs.git
 ```
+
+**Second step**
+
+Create a [Mongo database](https://github.com/amirkangarloo/task-manager-nodejs#database).
+
+**Third step**
+
+Create a [**.env** file](https://github.com/amirkangarloo/task-manager-nodejs#env-file).
+
+
 **Fourth step**
 ```javascript
 npm install
