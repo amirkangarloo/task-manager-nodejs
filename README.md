@@ -10,7 +10,7 @@ Create a [Mongo database](https://github.com/amirkangarloo/task-manager-nodejs#d
 
 **Second step**
 
-Create a [**.env** file](https://github.com/amirkangarloo/task-manager-nodejs#.env-file).
+Create a [**.env** file](https://github.com/amirkangarloo/task-manager-nodejs#env-file).
 
 **Third step**
 ```javascript
